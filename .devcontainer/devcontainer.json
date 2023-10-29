@@ -1,0 +1,40 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.202.3/containers/typescript-node
+{
+  "name": "COVID-19 Statistics",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "args": {
+      "NODE": "18-bullseye"
+    }
+  },
+
+  // Set *default* container specific settings.json values on container create.
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.shell.linux": "/bin/zsh",
+        "editor.tabSize": 2
+      },
+
+      // Add the IDs of extensions you want installed when the container is created.
+      "extensions": [
+        "Github.copilot",
+        "dbaeumer.vscode-eslint",
+        "coenraads.bracket-pair-colorizer",
+        "sleistner.vscode-fileutils",
+        "eamodio.gitlens",
+        "ms-vscode.vscode-typescript-next",
+        "esbenp.prettier-vscode",
+        "tabnine.tabnine-vscode",
+        "wallabyjs.wallaby-vscode"
+      ]
+    }
+  },
+  "forwardPorts": [3000],
+  "postCreateCommand": "cd web && npm install",
+  "remoteUser": "node",
+  "features": {
+    "git": "os-provided"
+  }
+}
